@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuizHomeViewController: UIViewController{
+class RulesViewController: UIViewController{
     
     //MARK: - IBotlets
     @IBOutlet weak var quizTittle: UILabel!

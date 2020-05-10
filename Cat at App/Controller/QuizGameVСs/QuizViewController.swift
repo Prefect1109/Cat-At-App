@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnePlayerViewController : UIViewController {
+class QuizViewController : UIViewController {
     
     // Lifes images otlets
     @IBOutlet weak var life1: UIImageView!
@@ -45,58 +45,47 @@ class OnePlayerViewController : UIViewController {
     
     
     //MARK: - App Cycle methods
-    override func loadView() {
-        super.loadView()
-        newBreedUI()
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         K.catManager.delegate = self
         configurateView()
+        newBreedUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        startTimer()
+                startTimer()
     }
     
     
-    //View
-    func configurateView(){
+    //MARK: - View configuration
+    private func configurateView(){
         firtstAnswerButton.layer.cornerRadius = 15
         secondAnswerButton.layer.cornerRadius = 15
         skipButton.layer.cornerRadius = 15
     }
+    
+    //MARK: - IBActions
     
     // Go back from this screen
     @IBAction func backButtonPressed(_ sender: UIButton) {
         // add UIAlert
         stopTimer = true
         let alert = UIAlertController(title: "Warning", message: "you will lose your progress", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Play", style: .cancel, handler: { (cancelAlert) in
-            self.stopTimer = false
-            self.startTimer()
+        alert.addAction(UIAlertAction(title: "Play", style: .cancel, handler: { (_) in
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+                self.stopTimer = false
+                self.startTimer()
+            }
         }))
-        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { (Exitalert) in
+        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { (_) in
+            self.timeLeftSeconds = 0
+            //            self.stopTimer = false
+//            self.startTimer()
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true)
-    }
-    
-    // Spinner
-    func spinning(shoudSpin status: Bool) {
-        if status{
-            spinner.isHidden = false
-//            self.stopTimer = true
-            spinner.startAnimating()
-        } else {
-            spinner.isHidden = true
-//            self.stopTimer = false
-//            startTimer()
-            spinner.stopAnimating()
-        }
     }
     
     // Actions with button clicks
@@ -118,19 +107,37 @@ class OnePlayerViewController : UIViewController {
     func startTimer(){
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             
-            if !(self.stopTimer){
-                self.timeLeftSeconds -= 1
-            }
-            
-            self.timeLeft.text = String(self.timeLeftSeconds)
-            print(self.timeLeftSeconds)
-            
-            if (self.timeLeftSeconds==0) || (self.stopTimer){
+            if self.stopTimer {
+                self.stopTimer = false
                 timer.invalidate()
-                self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
+                print("Press F")
+            } else {
+                self.timeLeftSeconds -= 1
+                self.timeLeft.text = String(self.timeLeftSeconds)
+                print(self.timeLeftSeconds)
+                if (self.timeLeftSeconds == 0){
+                    timer.invalidate()
+                    self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
+                }
             }
         }
     }
+    
+    //MARK: - Support Methods
+    func safeClick(isEnable: Bool){
+        
+        if isEnable{
+            firtstAnswerButton.isEnabled = true
+            secondAnswerButton.isEnabled = true
+            skipButton.isEnabled = true
+        } else {
+            firtstAnswerButton.isEnabled = false
+            secondAnswerButton.isEnabled = false
+            skipButton.isEnabled = false
+        }
+    }
+    
+    
     
     // Answer randomizer
     func randomizeAnswer(){
@@ -147,7 +154,7 @@ class OnePlayerViewController : UIViewController {
     func CheckAnswer(isFirstButton : Bool){
         // check what we have - first/second button
         if isFirstButton{
-            if K.randomBool{
+            if !K.randomBool{
                 // if randomBool is true we add score point
                 // because in randomizeAnswer() if randomBool is true we  adding right answer in first button
                 scorePoints += 1
@@ -158,7 +165,7 @@ class OnePlayerViewController : UIViewController {
             }
             
         } else {
-            if !K.randomBool{
+            if K.randomBool{
                 scorePoints += 1
             } else {
                 brokeHeart()
@@ -199,8 +206,10 @@ class OnePlayerViewController : UIViewController {
     // Randomize answers, spinning when loading getting new cat breed image url, and display all in UI
     func newBreedUI(){
         spinning(shoudSpin: true)
+        safeClick(isEnable: false)
         K.catManager.getRandomBreedPhoto()
         randomizeAnswer()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -210,13 +219,13 @@ class OnePlayerViewController : UIViewController {
             destination.finalScore = scorePoints
         }
     }
-    private func saveImage(image image: UIImage, breedId id : String){
+    private func saveImage(with image: UIImage, breedId id : String){
         let fileManager = FileManager.default
         let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String)
         print(path)
-//        if !fileManager.fileExists(atPath: path) {
-//        try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-//        }
+        //        if !fileManager.fileExists(atPath: path) {
+        //        try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+        //        }
         let url = URL(string: path)
         let imagePath = url!.appendingPathComponent(id)
         let urlString: String = imagePath.absoluteString
@@ -224,13 +233,23 @@ class OnePlayerViewController : UIViewController {
         //let imageData = UIImagePNGRepresentation(image)
         fileManager.createFile(atPath: urlString as String, contents: imageData, attributes: nil)
     }
+    
+    // Spinner
+    private func spinning(shoudSpin status: Bool) {
+        if status{
+            spinner.isHidden = false
+            spinner.startAnimating()
+        } else {
+            spinner.isHidden = true
+            spinner.stopAnimating()
+        }
+    }
 }
 
 
 
-extension OnePlayerViewController : CatManagerDelegate {
+extension QuizViewController : CatManagerDelegate {
     func loadImage(with url: URL) {
-        K.loadedNextBreedURL = false
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if error != nil{
                 print("Error: \(error!)")
@@ -239,17 +258,29 @@ extension OnePlayerViewController : CatManagerDelegate {
             if let safeData = data {
                 DispatchQueue.main.async {
                     self.catForChoice.image = UIImage(data: safeData)
-                    self.saveImage(image: self.catForChoice.image!, breedId: K.rightBreedId)
+                    self.saveImage(with: self.catForChoice.image!, breedId: K.rightBreedId)
                     self.spinning(shoudSpin: false)
+                    self.safeClick(isEnable: true)
                     
+                    
+                    // load next photo When user choose his answer -> Don't waste time :)
                     K.catManager.getNextPhoto()
                 }
-
+                
             }
-
+            
         }.resume()
     }
-    func openDownloadedImage(withId: String){
+    func openDownloadedImage(withPath path: String){
+        
+        DispatchQueue.main.async {
+            self.catForChoice.image = UIImage(named: path)
+            self.spinning(shoudSpin: false)
+            self.safeClick(isEnable: true)
+            
+            // load next photo When user choose his answer -> Don't waste time :)
+            K.catManager.getNextPhoto()
+        }
         
     }
 }

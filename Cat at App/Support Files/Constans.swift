@@ -9,7 +9,7 @@
 import Foundation
 
 struct K {
-    static let apiKey = "I'm-Your-API-KEY"
+    static let apiKey = "8733fa87-4e44-4d33-af10-72d93e949cb9"
     
     // API Methods - API Documentation https://docs.thecatapi.com/authentication
     static let baseUrl = "https://api.thecatapi.com"
@@ -29,4 +29,8 @@ struct K {
 
     // Segues Names
     static var finalViewSegueName = "goToFinal"
+    
+    // Cell Identifier
+    static let catBreedCell = "catBreedCell"
+    static let catBreedCellClass = "BreedTableViewCell"
 }

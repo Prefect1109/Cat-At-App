@@ -35,4 +35,3 @@ class HomeViewController: UIViewController {
 //        performSegue(withIdentifier: "goToQuizMainView", sender: self)
     }
 }
-

@@ -10,7 +10,7 @@ import Foundation
 
 protocol CatManagerDelegate{
     func loadImage(with url: URL)
-    func openDownloadedImage(withId: String)
+    func openDownloadedImage(withPath: String)
 }
 
 class CatManager {
@@ -19,6 +19,9 @@ class CatManager {
     var decodingIsDone = false
     
     var delegate: CatManagerDelegate?
+    
+    //MARK: - Main Request
+    // One for all occasions
     
     func sentRequest(withURl url : String, operation : @escaping (Data) -> String){
         if let url = URL(string: url){
@@ -43,7 +46,7 @@ class CatManager {
         return
     }
     
-    //MARK: - Request Methods
+    //MARK: - Request From VC
     func getCurrentListOfBreeds(){
         sentRequest(withURl: K.AllBreedsMethod, operation: parseCatBreeds)
     }
@@ -62,7 +65,7 @@ class CatManager {
             let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(K.rightBreedId)
             if FileManager.default.fileExists(atPath: path) {
                 print("File exist")
-                delegate?.openDownloadedImage(withId: K.rightBreedId)
+                delegate?.openDownloadedImage(withPath: path)
             } else {
                 let UrlWithParameters = K.imageSearchMethod + String(K.breedsList[randomBreedId].id)
                 self.sentRequest(withURl: UrlWithParameters, operation: parseBreedImage)
@@ -80,15 +83,16 @@ class CatManager {
         let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(K.rightBreedId)
         
         if !FileManager.default.fileExists(atPath: path) {
-            print("File exist")
             let UrlWithParameters = K.imageSearchMethod + String(K.breedsList[randomBreedId].id)
             self.sentRequest(withURl: UrlWithParameters, operation: self.parseNextBreedImage)
-            //            delegate?.openDownloadedImage(withId: K.rightBreedId)
         }
+            K.loadedNextBreedURL = false
+        // Why don't open new file here? -> Because it's "Boofer" with next photo, so we no needed to open it right now=
+        print("File exist When we load next photo")
         
     }
     
-    //MARK: - Operation methods
+    //MARK: - Operation methods (Json Parsing)
     
     // get cat Breeds list
     private func parseCatBreeds(_ data: Data) -> String{
