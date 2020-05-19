@@ -29,9 +29,27 @@ class HomeViewController: UIViewController {
         catBreedsButton.layer.cornerRadius = 10
         quizButton.layer.cornerRadius = 10
     }
-
     
-    @IBAction func playQuizButtonPressed(_ sender: UIButton) {
-//        performSegue(withIdentifier: "goToQuizMainView", sender: self)
+    @IBAction func getCatBreedsList(_ sender: UIButton) {
+        if K.breedsList.count == 0{
+            let alert = UIAlertController(title: "Need inernet connection", message: "Your internet connection is unreachable, or low\n if low wait few seconds and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "👌🏻 Try Again", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "🛠 Settings", style: .default, handler: { (_) in
+                let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+                if let url = settingsUrl {
+                    UIApplication.shared.openURL(url)
+                }
+            }))
+            present(alert, animated: true)
+        } else {
+            performSegue(withIdentifier: K.goToBreedList, sender: self)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.goToBreedList {
+            _ = segue.destination as! BreedListViewController
+        }
     }
 }

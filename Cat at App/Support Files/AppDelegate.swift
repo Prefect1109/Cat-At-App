@@ -11,13 +11,11 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Uploading list of breeds
-//        DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            //TODO: Implement the core data model
             K.catManager.getCurrentListOfBreeds()
-//        }
+        }
         return true
     }
 

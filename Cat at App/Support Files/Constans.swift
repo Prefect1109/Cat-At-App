@@ -9,7 +9,8 @@
 import Foundation
 
 struct K {
-    static let apiKey = "8733fa87-4e44-4d33-af10-72d93e949cb9"
+    static let apiKey = "YOUR_API_KEY"
+    static let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
     
     // API Methods - API Documentation https://docs.thecatapi.com/authentication
     static let baseUrl = "https://api.thecatapi.com"
@@ -18,10 +19,18 @@ struct K {
     
     // Run time cache - breeds info
     static var breedsList = [Breed]()
+    
     static var catManager = CatManager()
-    static var lastImageUrl = String() 
+    
     static var rightBreedName = String()
     static var rightBreedId = String()
+        
+    // Random sequnce of breeds
+    static var currentSequenceOfbreeds = [Breed]()
+    static var indexNumber = 0
+    static var loadIndexNumber = 0
+    static var imageNotLoaded = false
+    static var needNewUI = false
     
     // Support variables for access control
     static var randomBool = true
@@ -29,6 +38,7 @@ struct K {
 
     // Segues Names
     static var finalViewSegueName = "goToFinal"
+    static var goToBreedList = "goToBreedList"
     
     // Cell Identifier
     static let catBreedCell = "catBreedCell"

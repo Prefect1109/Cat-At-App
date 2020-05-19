@@ -38,7 +38,7 @@ class QuizViewController : UIViewController {
     
     
     //MARK: - Variables
-    var timeLeftSeconds = 60
+    var timeLeftSeconds : Float = 60
     var stopTimer = false
     var scorePoints = 0
     var heartPoints = 9
@@ -47,7 +47,6 @@ class QuizViewController : UIViewController {
     //MARK: - App Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         K.catManager.delegate = self
         configurateView()
         newBreedUI()
@@ -55,7 +54,7 @@ class QuizViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-                startTimer()
+        startTimer()
     }
     
     
@@ -72,17 +71,15 @@ class QuizViewController : UIViewController {
     @IBAction func backButtonPressed(_ sender: UIButton) {
         // add UIAlert
         stopTimer = true
-        let alert = UIAlertController(title: "Warning", message: "you will lose your progress", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning", message: "You will lose your progress", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Play", style: .cancel, handler: { (_) in
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { timer in
                 self.stopTimer = false
                 self.startTimer()
             }
         }))
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { (_) in
             self.timeLeftSeconds = 0
-            //            self.stopTimer = false
-//            self.startTimer()
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true)
@@ -105,17 +102,16 @@ class QuizViewController : UIViewController {
     
     // TIMER
     func startTimer(){
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.0001, repeats: true) { timer in
             
             if self.stopTimer {
                 self.stopTimer = false
                 timer.invalidate()
-                print("Press F")
             } else {
-                self.timeLeftSeconds -= 1
-                self.timeLeft.text = String(self.timeLeftSeconds)
+                self.timeLeftSeconds -= 0.0001
+                self.timeLeft.text = String(Int(self.timeLeftSeconds))
                 print(self.timeLeftSeconds)
-                if (self.timeLeftSeconds == 0){
+                if (Int(self.timeLeftSeconds) <= 0){
                     timer.invalidate()
                     self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
                 }
@@ -141,13 +137,20 @@ class QuizViewController : UIViewController {
     
     // Answer randomizer
     func randomizeAnswer(){
-        K.randomBool = Bool.random()
-        if K.randomBool{
-            firtstAnswerButton.setTitle(K.breedsList[Int.random(in: 0...K.breedsList.count - 1)].name, for: .normal)
-            secondAnswerButton.setTitle(K.rightBreedName, for: .normal)
+        let randomBreedNumber = Int.random(in: 0...K.breedsList.count - 1)
+        if K.breedsList[randomBreedNumber].name != K.rightBreedName{
+            K.randomBool = Bool.random()
+            if K.randomBool{
+                firtstAnswerButton.setTitle(K.breedsList[randomBreedNumber].name, for: .normal)
+                secondAnswerButton.setTitle(K.rightBreedName, for: .normal)
+            } else {
+                firtstAnswerButton.setTitle(K.rightBreedName, for: .normal)
+                secondAnswerButton.setTitle(K.breedsList[randomBreedNumber].name, for: .normal)
+            }
+            
         } else {
-            firtstAnswerButton.setTitle(K.rightBreedName, for: .normal)
-            secondAnswerButton.setTitle(K.breedsList[Int.random(in: 0...K.breedsList.count - 1)].name, for: .normal)
+            randomizeAnswer()
+            return
         }
     }
     
@@ -177,6 +180,7 @@ class QuizViewController : UIViewController {
     // Sad
     func brokeHeart(){
         switch heartPoints {
+        // in start we have 9 lifes
         case 9:
             life9.image = UIImage(named: "brokeHeart")
         case 8:
@@ -205,10 +209,14 @@ class QuizViewController : UIViewController {
     
     // Randomize answers, spinning when loading getting new cat breed image url, and display all in UI
     func newBreedUI(){
-        spinning(shoudSpin: true)
-        safeClick(isEnable: false)
-        K.catManager.getRandomBreedPhoto()
-        randomizeAnswer()
+        DispatchQueue.main.async {
+            self.spinning(shoudSpin: true)
+            self.safeClick(isEnable: false)
+            K.rightBreedName = K.currentSequenceOfbreeds[K.indexNumber].name
+            K.needNewUI = true
+            K.catManager.getNextPhoto()
+            self.randomizeAnswer()
+        }
         
     }
     
@@ -218,20 +226,6 @@ class QuizViewController : UIViewController {
             print(scorePoints)
             destination.finalScore = scorePoints
         }
-    }
-    private func saveImage(with image: UIImage, breedId id : String){
-        let fileManager = FileManager.default
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String)
-        print(path)
-        //        if !fileManager.fileExists(atPath: path) {
-        //        try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-        //        }
-        let url = URL(string: path)
-        let imagePath = url!.appendingPathComponent(id)
-        let urlString: String = imagePath.absoluteString
-        let imageData = image.jpegData(compressionQuality: 0.5)
-        //let imageData = UIImagePNGRepresentation(image)
-        fileManager.createFile(atPath: urlString as String, contents: imageData, attributes: nil)
     }
     
     // Spinner
@@ -250,27 +244,8 @@ class QuizViewController : UIViewController {
 
 extension QuizViewController : CatManagerDelegate {
     func loadImage(with url: URL) {
-        URLSession.shared.dataTask(with: url) { (data, responce, error) in
-            if error != nil{
-                print("Error: \(error!)")
-                return
-            }
-            if let safeData = data {
-                DispatchQueue.main.async {
-                    self.catForChoice.image = UIImage(data: safeData)
-                    self.saveImage(with: self.catForChoice.image!, breedId: K.rightBreedId)
-                    self.spinning(shoudSpin: false)
-                    self.safeClick(isEnable: true)
-                    
-                    
-                    // load next photo When user choose his answer -> Don't waste time :)
-                    K.catManager.getNextPhoto()
-                }
-                
-            }
-            
-        }.resume()
     }
+    
     func openDownloadedImage(withPath path: String){
         
         DispatchQueue.main.async {
@@ -278,8 +253,7 @@ extension QuizViewController : CatManagerDelegate {
             self.spinning(shoudSpin: false)
             self.safeClick(isEnable: true)
             
-            // load next photo When user choose his answer -> Don't waste time :)
-            K.catManager.getNextPhoto()
+            //             load next photo When user choose his answer -> Don't waste time :)
         }
         
     }

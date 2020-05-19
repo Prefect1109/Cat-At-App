@@ -12,6 +12,7 @@ struct Breed : Codable{
     let id : String
     let name : String
     let description : String
+    
     //Abilities
     let life_span : String
     let intelligence : Int
@@ -20,7 +21,7 @@ struct Breed : Codable{
 }
 
 struct BreedImage: Codable {
-//    let breeds : Breed
+    let breeds : [Breed]
     let url : String
 }
 

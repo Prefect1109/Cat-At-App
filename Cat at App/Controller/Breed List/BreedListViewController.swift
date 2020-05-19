@@ -13,7 +13,9 @@ class BreedListViewController : UIViewController {
     
     //MARK: - IBotlets
     @IBOutlet weak var tableView: UITableView!
+    
     //MARK: - Variables
+    var currentBreed = K.breedsList[0]
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class BreedListViewController : UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! BreedDescriptionViewController
+        destination.breed = currentBreed
     }
 }
 
@@ -60,6 +63,7 @@ extension BreedListViewController : UITableViewDelegate, UITableViewDataSource{
     
     // UITableViewDelegate method
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.currentBreed = K.breedsList[indexPath.row]
         performSegue(withIdentifier: "goToBreedDescription", sender: self)
     }
     

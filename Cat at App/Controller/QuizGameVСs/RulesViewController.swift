@@ -36,22 +36,22 @@ class RulesViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func onePlayerButtonPressed(_ sender: UIButton) {
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(K.breedsList.count)
         if K.breedsList.count == 0{
-            let alert = UIAlertController(title: "Inernet connection", message: "Your internet connection is low or unreachable.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (_) in
+            let alert = UIAlertController(title: "Need inernet connection", message: "Your internet connection is unreachable, or low\n if low wait few seconds and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "👌🏻 Try Again", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "🛠 Settings", style: .default, handler: { (_) in
                 let settingsUrl = URL(string: UIApplication.openSettingsURLString)
                 if let url = settingsUrl {
                     UIApplication.shared.openURL(url)
                 }
             }))
             present(alert, animated: true)
+        } else {
+            K.indexNumber = 0
         }
     }
-    
 }
+

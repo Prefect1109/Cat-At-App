@@ -32,12 +32,34 @@ class FinalScoreViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        K.currentSequenceOfbreeds = K.breedsList.shuffled()
+        K.loadIndexNumber = 0
     }
     
     // configurateView
     func configurateView(){
         mainMenuButton.layer.cornerRadius = 10
         playQuizButton.layer.cornerRadius = 10
+        textForCurrentScore()
+    }
+    
+    private func textForCurrentScore(){
+        switch finalScore {
+        case 0:
+            finalText.text = "You even see cats?\n😐"
+        case 1...5:
+            finalText.text = "Try again, you could better\n😸"
+        case 6...9:
+            finalText.text = "It's not your limit\n👀"
+        case 10...15:
+            finalText.text = "A little more and you can be an expert\n😎"
+        case 16...99:
+            finalText.text = "Awesome, you expert in fluffies\n🤓"
+        case 100...10000:
+            finalText.text = "Are you have self life?\n🤨"
+        default:
+            finalText.text = "Not Bad\n👌"
+        }
     }
     
     @IBAction func mainMenuButtonPressed(_ sender: UIButton) {

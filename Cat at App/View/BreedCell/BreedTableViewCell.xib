@@ -95,8 +95,8 @@
                                                         <color key="textColor" name="BrandColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" intelligence:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-6Y-lpk">
-                                                        <rect key="frame" x="0.0" y="27" width="73.5" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Intelligence:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-6Y-lpk">
+                                                        <rect key="frame" x="0.0" y="27" width="74" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="bHa-LG-2nN"/>
                                                         </constraints>
@@ -104,7 +104,7 @@
                                                         <color key="textColor" name="BrandColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" dog friendly:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvy-Q5-Bsx">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Dog friendly:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvy-Q5-Bsx">
                                                         <rect key="frame" x="0.0" y="54" width="80" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="80" id="SV3-Ca-4ZT"/>
@@ -114,8 +114,8 @@
                                                         <color key="textColor" name="BrandColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" energy level" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VP-XK-npj">
-                                                        <rect key="frame" x="0.0" y="81" width="73.5" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Energy level:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VP-XK-npj">
+                                                        <rect key="frame" x="0.0" y="81" width="77" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="B6X-XN-1SS"/>
                                                         </constraints>
