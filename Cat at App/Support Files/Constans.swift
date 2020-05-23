@@ -9,8 +9,8 @@
 import Foundation
 
 struct K {
-    static let apiKey = "YOUR_API_KEY"
-    static let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    static let apiKey = "8733fa87-4e44-4d33-af10-72d93e949cb9"
+    static let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
     
     // API Methods - API Documentation https://docs.thecatapi.com/authentication
     static let baseUrl = "https://api.thecatapi.com"
@@ -35,10 +35,14 @@ struct K {
     // Support variables for access control
     static var randomBool = true
     static var loadedNextBreedURL = false
+    static var stopDownloadAllPhotos = false
 
     // Segues Names
     static var finalViewSegueName = "goToFinal"
     static var goToBreedList = "goToBreedList"
+    static var goToQuiz = "goToQuiz"
+    static var goToQuizMainView = "goToQuizMainView"
+    static var goToOneBreedList = "goToOneBreedList"
     
     // Cell Identifier
     static let catBreedCell = "catBreedCell"

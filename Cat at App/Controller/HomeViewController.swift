@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func getCatBreedsList(_ sender: UIButton) {
         if K.breedsList.count == 0{
-            let alert = UIAlertController(title: "Need inernet connection", message: "Your internet connection is unreachable, or low\n if low wait few seconds and try again.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "We load new breeds", message: "Your internet connection is unreachable, or low\n if low wait few seconds and try again.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "👌🏻 Try Again", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "🛠 Settings", style: .default, handler: { (_) in
                 let settingsUrl = URL(string: UIApplication.openSettingsURLString)
@@ -47,9 +47,21 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func goToCatQuizRules(_ sender: UIButton) {
+        performSegue(withIdentifier: K.goToQuizMainView, sender: self)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.goToBreedList {
+            
             _ = segue.destination as! BreedListViewController
+            
+        } else if segue.identifier == K.goToQuizMainView{
+            
+            _ = segue.destination as! RulesViewController
+            
         }
+        
     }
 }

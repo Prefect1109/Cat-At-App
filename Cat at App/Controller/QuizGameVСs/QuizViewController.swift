@@ -110,7 +110,6 @@ class QuizViewController : UIViewController {
             } else {
                 self.timeLeftSeconds -= 0.0001
                 self.timeLeft.text = String(Int(self.timeLeftSeconds))
-                print(self.timeLeftSeconds)
                 if (Int(self.timeLeftSeconds) <= 0){
                     timer.invalidate()
                     self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
@@ -243,18 +242,12 @@ class QuizViewController : UIViewController {
 
 
 extension QuizViewController : CatManagerDelegate {
-    func loadImage(with url: URL) {
-    }
-    
+
     func openDownloadedImage(withPath path: String){
-        
         DispatchQueue.main.async {
             self.catForChoice.image = UIImage(named: path)
             self.spinning(shoudSpin: false)
             self.safeClick(isEnable: true)
-            
-            //             load next photo When user choose his answer -> Don't waste time :)
         }
-        
     }
 }

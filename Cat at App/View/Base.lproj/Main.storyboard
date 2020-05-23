@@ -37,7 +37,7 @@
                                     <color key="titleShadowColor" name="BrandColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="k7K-KF-Co3" kind="presentation" identifier="goToQuizMainView" modalPresentationStyle="overFullScreen" modalTransitionStyle="flipHorizontal" id="ZvQ-wf-i5R"/>
+                                    <action selector="goToCatQuizRules:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hdp-hm-F59"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-mD-lDA">
@@ -80,6 +80,7 @@
                         <outlet property="quizButton" destination="ohT-JK-v5I" id="b0X-lU-mFC"/>
                         <outlet property="titleText" destination="Cdz-jb-aPO" id="NSF-OW-OFO"/>
                         <segue destination="40W-tp-djr" kind="presentation" identifier="goToBreedList" modalPresentationStyle="currentContext" id="PvO-b9-kwH"/>
+                        <segue destination="k7K-KF-Co3" kind="presentation" identifier="goToQuizMainView" modalPresentationStyle="overFullScreen" modalTransitionStyle="flipHorizontal" id="z93-iJ-QoR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -678,7 +679,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onePlayerButtonPressed:" destination="k7K-KF-Co3" eventType="touchUpInside" id="QWG-J7-eDO"/>
-                                    <segue destination="AC9-1P-M52" kind="presentation" identifier="goToTwoPlayersViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="zxz-T5-M6t"/>
+                                    <segue destination="AC9-1P-M52" kind="presentation" identifier="goToQuiz" modalPresentationStyle="currentContext" modalTransitionStyle="coverVertical" id="zxz-T5-M6t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzW-3L-Oh2">
@@ -692,7 +693,8 @@
                                     <color key="titleColor" name="SecondColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="40W-tp-djr" kind="presentation" identifier="goToOnePlayerViewController" modalPresentationStyle="currentContext" modalTransitionStyle="coverVertical" id="QWJ-O0-L6s"/>
+                                    <action selector="breedListButtonPressed:" destination="k7K-KF-Co3" eventType="touchDragInside" id="jpb-tg-JBN"/>
+                                    <segue destination="40W-tp-djr" kind="presentation" identifier="goToOneBreedList" modalPresentationStyle="currentContext" modalTransitionStyle="coverVertical" id="QWJ-O0-L6s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -722,7 +724,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="qWh-OH-G03"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="onePlayerButton" destination="3ho-is-Hak" id="amR-nq-OLz"/>
+                        <outlet property="onePlayerButton" destination="3ho-is-Hak" id="KRc-3w-7dg"/>
                         <outlet property="quizTittle" destination="gAz-0T-OIv" id="qYF-MZ-QqU"/>
                         <outlet property="rulesView" destination="BAe-0i-MC5" id="Y5g-nj-D0u"/>
                         <outlet property="twoPlayersButton" destination="KzW-3L-Oh2" id="Pra-bj-7IC"/>
@@ -831,7 +833,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aBo-ak-zIr"/>
+        <segue reference="z93-iJ-QoR"/>
         <segue reference="QWJ-O0-L6s"/>
     </inferredMetricsTieBreakers>
     <resources>

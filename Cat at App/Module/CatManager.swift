@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-protocol CatManagerDelegate{
-    func loadImage(with url: URL)
+@objc protocol CatManagerDelegate{
+    @objc optional func loadImage(with url: URL)
     func openDownloadedImage(withPath: String)
 }
 
@@ -59,8 +59,8 @@ class CatManager {
         }
         
         let breed = K.currentSequenceOfbreeds[K.indexNumber]
-        
-        let path = K.documentDirectory.appendingPathComponent(breed.id)
+        print("getNextPhoto: \(K.indexNumber)")
+        let path = breedImagePath(breed.id)
         
         if FileManager.default.fileExists(atPath: path){
             if K.needNewUI{
@@ -74,41 +74,49 @@ class CatManager {
         }
     }
     
-    private func loadAllBreedsPhotos(){
-        if K.currentSequenceOfbreeds.count == K.loadIndexNumber{
-            K.loadIndexNumber = 0
-            return
-        }
-        
-        let breed = K.currentSequenceOfbreeds[K.loadIndexNumber]
-        let path = breedImagePath(breed.id)
-        
-        if !FileManager.default.fileExists(atPath: path){
-            let UrlWithParameters = K.imageSearchMethod + breed.id
-            DispatchQueue.main.async {
-                self.sentRequest(breedId: breed.id, withURl: UrlWithParameters, operation: self.parseBreedImage)
+    func loadAllBreedsPhotos(interval: Double){
+        Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+            //TODO: Prioriting every call
+            
+            if K.currentSequenceOfbreeds.count <= K.loadIndexNumber + 1 || K.stopDownloadAllPhotos{
+                K.stopDownloadAllPhotos = false
+                timer.invalidate()
+            } else {
+                print("loadAllBreedsPhotos: \(K.loadIndexNumber)")
+                let breed = K.currentSequenceOfbreeds[K.loadIndexNumber]
+                let path = self.breedImagePath(breed.id)
+                
+                if !FileManager.default.fileExists(atPath: path){
+                    
+                    DispatchQueue.global(qos: .userInitiated).async{
+                        let UrlWithParameters = K.imageSearchMethod + breed.id
+                        self.getNextPhoto()
+                        self.sentRequest(breedId: breed.id, withURl: UrlWithParameters, operation: self.parseBreedImage)
+                    }
+                }
+                K.loadIndexNumber += 1
             }
         }
-        
-        K.loadIndexNumber += 1
     }
     
     //MARK: - Request from Breed Description VC
     func getBreedInformation(id : String){
+        K.stopDownloadAllPhotos = true
         // Get preloadedData or existFile
         let path = breedImagePath(id)
         if FileManager.default.fileExists(atPath: path) {
             print("File exist")
             delegate?.openDownloadedImage(withPath: path)
         } else {
-            let UrlWithParameters = K.imageSearchMethod + id
-            self.sentRequest(breedId: id, withURl: UrlWithParameters, operation: parseBreedImage)
+            DispatchQueue.global(qos: .userInitiated).async {
+                let UrlWithParameters = K.imageSearchMethod + id
+                self.sentRequest(breedId: id, withURl: UrlWithParameters, operation: self.parseBreedImageForDescriptiom)
+            }
         }
-        
+        self.loadAllBreedsPhotos(interval: 0.5)
     }
     
     //MARK: - Operation methods (Json Parsing)
-    
     // get cat Breeds list
     private func parseCatBreeds(_ data: Data, _ breedId: String) -> String{
         let decoder = JSONDecoder()
@@ -117,7 +125,7 @@ class CatManager {
             K.breedsList = decodeData
             K.currentSequenceOfbreeds = K.breedsList.shuffled()
             DispatchQueue.main.async {
-                self.loadAllBreedsPhotos()
+                self.loadAllBreedsPhotos(interval: 0.5)
             }
         } catch {
             print("Error with parsing data: \(error)")
@@ -133,8 +141,25 @@ class CatManager {
         do {
             let decodeData = try decoder.decode([BreedImage].self, from: data)
             for breed in decodeData{
-                DispatchQueue.main.async {
+                DispatchQueue.global(qos: .userInitiated).async {
                     self.loadImage(with: URL(string: breed.url)!, breedId)
+                }
+            }
+        } catch {
+            print("Error with parsing data: \(error)")
+            return "Error decoding breed image url"
+        }
+        return "Success decoding breed image url"
+    }
+    
+    // get cat Breed image for Desription
+    private func parseBreedImageForDescriptiom(_ data: Data, _ breedId: String) -> String {
+        let decoder = JSONDecoder()
+        do {
+            let decodeData = try decoder.decode([BreedImage].self, from: data)
+            for breed in decodeData{
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.delegate?.loadImage?(with: URL(string: breed.url)!)
                 }
             }
         } catch {
@@ -157,15 +182,9 @@ class CatManager {
                 
                 print(path)
                 
-                DispatchQueue.main.async {
-                    self.loadAllBreedsPhotos()
-                }
-                
                 if K.imageNotLoaded{
                     self.getNextPhoto()
                 }
-                
-                
             }
             
             if error != nil{
@@ -177,6 +196,6 @@ class CatManager {
     }
     
     private func breedImagePath(_ id : String) -> String {
-        return K.documentDirectory.appendingPathComponent(id)
+        return "\(K.documentDirectory)/\(id)"
     }
 }

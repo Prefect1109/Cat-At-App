@@ -46,8 +46,8 @@
             filePath = "Cat at App/Controller/Breed List/BreedDescriptionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "openDownloadedImage(withPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Cat at App/Controller/Breed List/BreedDescriptionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "loadImage(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Cat at App/Controller/QuizGameV&#x421;s/QuizViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "openDownloadedImage(withPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Cat at App/Controller/Breed List/BreedDescriptionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "openDownloadedImage(withPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,16 +120,80 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C8D19233-696C-4C33-A4EC-C6ED889BB592"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cat at App/Module/CatManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "parseCatBreeds(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C8D19233-696C-4C33-A4EC-C6ED889BB592 - 2cc7b541802d78f4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cat_at_App.CatManager.(parseCatBreeds in _AEF24ED7839E2C819EB8FF91A542DD5B)(Foundation.Data, Swift.String) -&gt; Swift.String"
+                  moduleName = "Cat at App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bogdantkacuk/Desktop/INTRESTING/Cat-At-App/Cat%20at%20App/Module/CatManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "C8D19233-696C-4C33-A4EC-C6ED889BB592 - 2cc7b541802d78f4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cat_at_App.CatManager.(parseCatBreeds in _AEF24ED7839E2C819EB8FF91A542DD5B)(Foundation.Data, Swift.String) -&gt; Swift.String"
+                  moduleName = "Cat at App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bogdantkacuk/Desktop/INTRESTING/Cat-At-App/Cat%20at%20App/Module/CatManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "1544">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCCABB21-83A2-4FEB-A07B-E1151DD172EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cat at App/Module/CatManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "parseCatBreeds(_:_:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "loadAllBreedsPhotos(interval:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2FD3234B-AE41-4782-B4DD-14CEDD1676E8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cat at App/Module/CatManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "CatManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

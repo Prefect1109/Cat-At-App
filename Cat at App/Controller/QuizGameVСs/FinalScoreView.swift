@@ -32,8 +32,10 @@ class FinalScoreViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        K.stopDownloadAllPhotos = true
         K.currentSequenceOfbreeds = K.breedsList.shuffled()
         K.loadIndexNumber = 0
+        K.catManager.loadAllBreedsPhotos(interval: 0.1)
     }
     
     // configurateView
@@ -64,7 +66,6 @@ class FinalScoreViewController: UIViewController{
     
     @IBAction func mainMenuButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToHomeViewFromFinal", sender: self)
-        
     }
     
     @IBAction func playQuizButton(_ sender: UIButton) {

@@ -35,7 +35,13 @@ class RulesViewController: UIViewController{
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func onePlayerButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: K.goToQuiz, sender: self)
+    }
+    
+    @IBAction func breedListButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: K.goToOneBreedList, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

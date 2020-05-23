@@ -31,7 +31,13 @@ class BreedDescriptionViewController: UIViewController {
         K.catManager.delegate = self
         addImage()
         configurateView()
+        
     }
+    
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        K.stopDownloadAllPhotos = false
+    //        K.catManager.loadAllBreedsPhotos()
+    //    }
     
     //MARK: - View
     private func configurateView(){
@@ -97,6 +103,8 @@ extension BreedDescriptionViewController : CatManagerDelegate {
             }
             
         }.resume()
+        
+        K.catManager.loadAllBreedsPhotos(interval: 0.15)
     }
     func openDownloadedImage(withPath path: String){
         
@@ -104,5 +112,6 @@ extension BreedDescriptionViewController : CatManagerDelegate {
             self.breedImage.image = UIImage(named: path)
             self.spinning(shoudSpin: false)
         }
+        K.catManager.loadAllBreedsPhotos(interval: 0.15)
     }
 }
