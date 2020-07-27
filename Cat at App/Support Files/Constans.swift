@@ -45,6 +45,9 @@ struct K {
     static var goToOneBreedList = "goToOneBreedList"
     
     // Cell Identifier
-    static let catBreedCell = "catBreedCell"
-    static let catBreedCellClass = "BreedTableViewCell"
+    static let catBreedCell = "newCatBreedCell"//"catBreedCell"
+    static let catBreedCellClass = "NewBreedTableViewCell"//"BreedTableViewCell"
+    
+    //User Defaults shortCut
+    static let UD = UserDefaults.standard
 }

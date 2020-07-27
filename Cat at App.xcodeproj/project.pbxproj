@@ -10,6 +10,8 @@
 		C24A5803246862FA00D1FA7F /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */; };
 		C24A5804246862FA00D1FA7F /* BreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */; };
 		C24A580624686C0900D1FA7F /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A580524686C0900D1FA7F /* BreedDescriptionViewController.swift */; };
+		C266AA992489B6070025B191 /* NewBreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */; };
+		C266AA9A2489B6070025B191 /* NewBreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */; };
 		C28902FB244C7E57000EAD39 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28902FA244C7E57000EAD39 /* CatManager.swift */; };
 		C2A95A5E245AE06C00B6A811 /* FinalScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A95A5D245AE06C00B6A811 /* FinalScoreView.swift */; };
 		C2CEF2DA244B6E810098001D /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2D9244B6E810098001D /* CatBreed.swift */; };
@@ -29,6 +31,8 @@
 		C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
 		C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedTableViewCell.xib; sourceTree = "<group>"; };
 		C24A580524686C0900D1FA7F /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
+		C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBreedTableViewCell.swift; sourceTree = "<group>"; };
+		C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBreedTableViewCell.xib; sourceTree = "<group>"; };
 		C28902FA244C7E57000EAD39 /* CatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
 		C2A95A5D245AE06C00B6A811 /* FinalScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreView.swift; sourceTree = "<group>"; };
 		C2CEF2D9244B6E810098001D /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		C24A5800246862CD00D1FA7F /* BreedCell */ = {
 			isa = PBXGroup;
 			children = (
+				C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */,
+				C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */,
 				C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */,
 				C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */,
 			);
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C24A5804246862FA00D1FA7F /* BreedTableViewCell.xib in Resources */,
+				C266AA9A2489B6070025B191 /* NewBreedTableViewCell.xib in Resources */,
 				C2E83065244B0750009C3035 /* LaunchScreen.storyboard in Resources */,
 				C2E83062244B0750009C3035 /* Assets.xcassets in Resources */,
 				C2E83060244B074F009C3035 /* Main.storyboard in Resources */,
@@ -227,6 +234,7 @@
 			files = (
 				C24A580624686C0900D1FA7F /* BreedDescriptionViewController.swift in Sources */,
 				C2CEF2DE244B6F2C0098001D /* BreedListViewController.swift in Sources */,
+				C266AA992489B6070025B191 /* NewBreedTableViewCell.swift in Sources */,
 				C2E8305D244B074F009C3035 /* HomeViewController.swift in Sources */,
 				C28902FB244C7E57000EAD39 /* CatManager.swift in Sources */,
 				C2CEF2DA244B6E810098001D /* CatBreed.swift in Sources */,

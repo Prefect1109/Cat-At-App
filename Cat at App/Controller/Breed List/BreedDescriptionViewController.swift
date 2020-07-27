@@ -76,6 +76,7 @@ class BreedDescriptionViewController: UIViewController {
             spinner.stopAnimating()
         }
     }
+    
     private func updateText(){
         breedName.text = breed.name
         breedDescription.text = breed.description

@@ -51,13 +51,13 @@ extension BreedListViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.catBreedCell, for: indexPath) as! BreedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.catBreedCell, for: indexPath) as! NewBreedTableViewCell
         cell.breedName.text = K.breedsList[indexPath.row].name
         cell.breedDescription.text = K.breedsList[indexPath.row].description
-        cell.lifeSpan.text = K.breedsList[indexPath.row].life_span
-        cell.intelligence.text = "\(K.breedsList[indexPath.row].intelligence) / 5"
-        cell.dogFriendly.text = "\(K.breedsList[indexPath.row].dog_friendly) / 5"
-        cell.energyLevel.text = "\(K.breedsList[indexPath.row].energy_level ) / 10"
+        cell.breed =  K.breedsList[indexPath.row]
+//        cell.intelligence.text = "\(K.breedsList[indexPath.row].intelligence) / 5"
+//        cell.dogFriendly.text = "\(K.breedsList[indexPath.row].dog_friendly) / 5"
+//        cell.energyLevel.text = "\(K.breedsList[indexPath.row].energy_level ) / 10"
         return cell
     }
     

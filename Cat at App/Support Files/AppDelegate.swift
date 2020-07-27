@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         DispatchQueue.main.async {
-            //TODO: Implement the core data model
+            //TODO: Implement the UserDefaults model
             K.catManager.getCurrentListOfBreeds()
         }
         return true
