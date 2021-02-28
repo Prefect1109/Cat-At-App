@@ -1,14 +1,6 @@
-//
-//  FinalScoreView.swift
-//  Cat at App
-//
-//  Created by Богдан Ткачук on 30.04.2020.
-//  Copyright © 2020 Bohdan Tkachuk. All rights reserved.
-//
-
 import UIKit
 
-class FinalScoreViewController: UIViewController{
+class FinalScoreVC: BaseViewController {
     
     // Butonns outlets
     @IBOutlet weak var mainMenuButton: UIButton!
@@ -32,10 +24,6 @@ class FinalScoreViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        K.stopDownloadAllPhotos = true
-        K.currentSequenceOfbreeds = K.breedsList.shuffled()
-        K.loadIndexNumber = 0
-        K.catManager.loadAllBreedsPhotos(interval: 0.1)
     }
     
     // configurateView
@@ -57,18 +45,21 @@ class FinalScoreViewController: UIViewController{
             finalText.text = "A little more and you can be an expert\n😎"
         case 16...99:
             finalText.text = "Awesome, you expert in fluffies\n🤓"
-        case 100...10000:
-            finalText.text = "Are you have self life?\n🤨"
         default:
-            finalText.text = "Not Bad\n👌"
+            finalText.text = "Are you have self life?\n🤨"
         }
     }
     
     @IBAction func mainMenuButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHomeViewFromFinal", sender: self)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func playQuizButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToQuizViewFromFinal", sender: self)
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is RulesVC {
+                _ = self.navigationController?.popToViewController(vc as! RulesVC, animated: true)
+            }
+        }
     }
 }

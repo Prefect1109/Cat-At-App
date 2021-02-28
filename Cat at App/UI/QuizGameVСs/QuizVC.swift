@@ -1,14 +1,6 @@
-//
-//  OnePlayerViewController.swift
-//  Cat at App
-//
-//  Created by Богдан Ткачук on 18.04.2020.
-//  Copyright © 2020 Bohdan Tkachuk. All rights reserved.
-//
-
 import UIKit
 
-class QuizViewController : UIViewController {
+class QuizVC : BaseViewController {
     
     // Lifes images otlets
     @IBOutlet weak var life1: UIImageView!
@@ -27,27 +19,28 @@ class QuizViewController : UIViewController {
     // CatImage
     @IBOutlet weak var catForChoice: UIImageView!
     
-    // Spiner outlet
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
     // Buttons Outlets
     @IBOutlet weak var firtstAnswerButton: UIButton!
     @IBOutlet weak var secondAnswerButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
-    
-    
     //MARK: - Variables
     var timeLeftSeconds : Float = 60
     var stopTimer = false
+    
+    // Lives
     var scorePoints = 0
     var heartPoints = 9
     
+    // Breed
+    var randomisedBreedArray = K.breedsList.shuffled()
+    var currentRightIndex = -1
+    
+    var randomBool = Bool()
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        K.catManager.delegate = self
         configurateView()
         newBreedUI()
     }
@@ -69,6 +62,7 @@ class QuizViewController : UIViewController {
     
     // Go back from this screen
     @IBAction func backButtonPressed(_ sender: UIButton) {
+        
         // add UIAlert
         stopTimer = true
         let alert = UIAlertController(title: "Warning", message: "You will lose your progress", preferredStyle: .alert)
@@ -80,7 +74,7 @@ class QuizViewController : UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { (_) in
             self.timeLeftSeconds = 0
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true)
     }
@@ -88,12 +82,10 @@ class QuizViewController : UIViewController {
     // Actions with button clicks
     @IBAction func firstAnswerButtonPressed(_ sender: UIButton) {
         CheckAnswer(isFirstButton: true)
-        newBreedUI()
     }
     
     @IBAction func secondAnswerButtonPressed(_ sender: UIButton) {
         CheckAnswer(isFirstButton: false)
-        newBreedUI()
     }
     
     @IBAction func skipButtonPressed(_ sender: UIButton) {
@@ -112,7 +104,7 @@ class QuizViewController : UIViewController {
                 self.timeLeft.text = String(Int(self.timeLeftSeconds))
                 if (Int(self.timeLeftSeconds) <= 0){
                     timer.invalidate()
-                    self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
+                    self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
                 }
             }
         }
@@ -134,17 +126,23 @@ class QuizViewController : UIViewController {
     
     
     
-    // Answer randomizer
+    // Answer randomised
     func randomizeAnswer(){
-        let randomBreedNumber = Int.random(in: 0...K.breedsList.count - 1)
-        if K.breedsList[randomBreedNumber].name != K.rightBreedName{
-            K.randomBool = Bool.random()
-            if K.randomBool{
-                firtstAnswerButton.setTitle(K.breedsList[randomBreedNumber].name, for: .normal)
-                secondAnswerButton.setTitle(K.rightBreedName, for: .normal)
+        let randomisedIndex = Int.random(in: 0...randomisedBreedArray.count - 1)
+        let randomisedName = randomisedBreedArray[randomisedIndex].name
+        
+        let currentRightBreedName = randomisedBreedArray[currentRightIndex].name
+        
+        if randomisedName != currentRightBreedName {
+            
+            randomBool = Bool.random()
+            
+            if randomBool {
+                firtstAnswerButton.setTitle(randomisedName, for: .normal)
+                secondAnswerButton.setTitle(currentRightBreedName, for: .normal)
             } else {
-                firtstAnswerButton.setTitle(K.rightBreedName, for: .normal)
-                secondAnswerButton.setTitle(K.breedsList[randomBreedNumber].name, for: .normal)
+                firtstAnswerButton.setTitle(randomisedName, for: .normal)
+                secondAnswerButton.setTitle(currentRightBreedName, for: .normal)
             }
             
         } else {
@@ -153,10 +151,11 @@ class QuizViewController : UIViewController {
         }
     }
     
-    func CheckAnswer(isFirstButton : Bool){
+    func CheckAnswer(isFirstButton: Bool) {
+        
         // check what we have - first/second button
-        if isFirstButton{
-            if !K.randomBool{
+        if isFirstButton {
+            if !randomBool {
                 // if randomBool is true we add score point
                 // because in randomizeAnswer() if randomBool is true we  adding right answer in first button
                 scorePoints += 1
@@ -167,19 +166,21 @@ class QuizViewController : UIViewController {
             }
             
         } else {
-            if K.randomBool{
+            if randomBool{
                 scorePoints += 1
             } else {
                 brokeHeart()
                 heartPoints -= 1
             }
         }
+        
+        newBreedUI()
     }
     
     // Sad
     func brokeHeart(){
         switch heartPoints {
-        // in start we have 9 lifes
+        // in start we have 9 lives
         case 9:
             life9.image = UIImage(named: "brokeHeart")
         case 8:
@@ -199,55 +200,48 @@ class QuizViewController : UIViewController {
         case 1:
             life1.image = UIImage(named: "brokeHeart")
             self.stopTimer = true
-            self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
+            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
         default:
-            self.performSegue(withIdentifier: K.finalViewSegueName, sender: nil)
+            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
         }
         
     }
     
-    // Randomize answers, spinning when loading getting new cat breed image url, and display all in UI
+    // Randomise answers, spinning when loading getting new cat breed image url, and display all in UI
     func newBreedUI(){
+        
         DispatchQueue.main.async {
-            self.spinning(shoudSpin: true)
+            self.showActivityControl(true)
             self.safeClick(isEnable: false)
-            K.rightBreedName = K.currentSequenceOfbreeds[K.indexNumber].name
-            K.needNewUI = true
-            K.catManager.getNextPhoto()
+            self.currentRightIndex += 1
+            
+            Networking.shared.loadImage(breed: self.randomisedBreedArray[self.currentRightIndex]) { (loadStatus, imagePath) in
+                DispatchQueue.main.async {
+                    if loadStatus,
+                       let safeImagePath = imagePath {
+                        
+                        self.showActivityControl(false)
+                        self.safeClick(isEnable: true)
+                        self.catForChoice.image = UIImage(named: safeImagePath)
+                        
+                    } else {
+                        
+                        // If you here something going wrong with api url, probably
+                        self.showActivityControl(false)
+                        self.newBreedUI()
+                        
+                    }
+                }
+            }
+            
             self.randomizeAnswer()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.finalViewSegueName{
-            let destination = segue.destination as! FinalScoreViewController
-            print(scorePoints)
+        if segue.identifier == Segue.finalViewSegueName{
+            let destination = segue.destination as! FinalScoreVC
             destination.finalScore = scorePoints
-        }
-    }
-    
-    // Spinner
-    private func spinning(shoudSpin status: Bool) {
-        if status{
-            spinner.isHidden = false
-            spinner.startAnimating()
-        } else {
-            spinner.isHidden = true
-            spinner.stopAnimating()
-        }
-    }
-}
-
-
-
-extension QuizViewController : CatManagerDelegate {
-
-    func openDownloadedImage(withPath path: String){
-        DispatchQueue.main.async {
-            self.catForChoice.image = UIImage(named: path)
-            self.spinning(shoudSpin: false)
-            self.safeClick(isEnable: true)
         }
     }
 }

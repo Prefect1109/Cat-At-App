@@ -7,47 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C24A5803246862FA00D1FA7F /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */; };
-		C24A5804246862FA00D1FA7F /* BreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */; };
-		C24A580624686C0900D1FA7F /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A580524686C0900D1FA7F /* BreedDescriptionViewController.swift */; };
-		C266AA992489B6070025B191 /* NewBreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */; };
-		C266AA9A2489B6070025B191 /* NewBreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */; };
-		C28902FB244C7E57000EAD39 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28902FA244C7E57000EAD39 /* CatManager.swift */; };
-		C2A95A5E245AE06C00B6A811 /* FinalScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A95A5D245AE06C00B6A811 /* FinalScoreView.swift */; };
+		C2304B2725EB274400B47480 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2304B2625EB274400B47480 /* APIConstants.swift */; };
+		C23BCB8A25EAB22B00C44AD5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BCB8925EAB22B00C44AD5 /* BaseViewController.swift */; };
+		C24A580624686C0900D1FA7F /* BreedDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A580524686C0900D1FA7F /* BreedDescriptionVC.swift */; };
+		C266AA992489B6070025B191 /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266AA972489B6070025B191 /* BreedTableViewCell.swift */; };
+		C266AA9A2489B6070025B191 /* BreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C266AA982489B6070025B191 /* BreedTableViewCell.xib */; };
+		C28902FB244C7E57000EAD39 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28902FA244C7E57000EAD39 /* Networking.swift */; };
+		C2A95A5E245AE06C00B6A811 /* FinalScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A95A5D245AE06C00B6A811 /* FinalScoreVC.swift */; };
 		C2CEF2DA244B6E810098001D /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2D9244B6E810098001D /* CatBreed.swift */; };
-		C2CEF2DC244B6EFA0098001D /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2DB244B6EFA0098001D /* QuizViewController.swift */; };
-		C2CEF2DE244B6F2C0098001D /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2DD244B6F2C0098001D /* BreedListViewController.swift */; };
+		C2CEF2DC244B6EFA0098001D /* QuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2DB244B6EFA0098001D /* QuizVC.swift */; };
+		C2CEF2DE244B6F2C0098001D /* BreedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CEF2DD244B6F2C0098001D /* BreedListVC.swift */; };
 		C2E83059244B074F009C3035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E83058244B074F009C3035 /* AppDelegate.swift */; };
 		C2E8305B244B074F009C3035 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8305A244B074F009C3035 /* SceneDelegate.swift */; };
-		C2E8305D244B074F009C3035 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8305C244B074F009C3035 /* HomeViewController.swift */; };
+		C2E8305D244B074F009C3035 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8305C244B074F009C3035 /* WelcomeVC.swift */; };
 		C2E83060244B074F009C3035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E8305E244B074F009C3035 /* Main.storyboard */; };
 		C2E83062244B0750009C3035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E83061244B0750009C3035 /* Assets.xcassets */; };
 		C2E83065244B0750009C3035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E83063244B0750009C3035 /* LaunchScreen.storyboard */; };
 		C2E83071244B11DD009C3035 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E83070244B11DD009C3035 /* Constans.swift */; };
-		C2E83073244B2F83009C3035 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E83072244B2F83009C3035 /* RulesViewController.swift */; };
+		C2E83073244B2F83009C3035 /* RulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E83072244B2F83009C3035 /* RulesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
-		C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedTableViewCell.xib; sourceTree = "<group>"; };
-		C24A580524686C0900D1FA7F /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
-		C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBreedTableViewCell.swift; sourceTree = "<group>"; };
-		C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBreedTableViewCell.xib; sourceTree = "<group>"; };
-		C28902FA244C7E57000EAD39 /* CatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
-		C2A95A5D245AE06C00B6A811 /* FinalScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreView.swift; sourceTree = "<group>"; };
+		C2304B2625EB274400B47480 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		C23BCB8925EAB22B00C44AD5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C24A580524686C0900D1FA7F /* BreedDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionVC.swift; sourceTree = "<group>"; };
+		C266AA972489B6070025B191 /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
+		C266AA982489B6070025B191 /* BreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedTableViewCell.xib; sourceTree = "<group>"; };
+		C28902FA244C7E57000EAD39 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		C2A95A5D245AE06C00B6A811 /* FinalScoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreVC.swift; sourceTree = "<group>"; };
 		C2CEF2D9244B6E810098001D /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
-		C2CEF2DB244B6EFA0098001D /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		C2CEF2DD244B6F2C0098001D /* BreedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewController.swift; sourceTree = "<group>"; };
+		C2CEF2DB244B6EFA0098001D /* QuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizVC.swift; sourceTree = "<group>"; };
+		C2CEF2DD244B6F2C0098001D /* BreedListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListVC.swift; sourceTree = "<group>"; };
 		C2E83055244B074F009C3035 /* Cat at App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cat at App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E83058244B074F009C3035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E8305A244B074F009C3035 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2E8305C244B074F009C3035 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C2E8305C244B074F009C3035 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		C2E8305F244B074F009C3035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2E83061244B0750009C3035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2E83064244B0750009C3035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2E83066244B0750009C3035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E83070244B11DD009C3035 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
-		C2E83072244B2F83009C3035 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		C2E83072244B2F83009C3035 /* RulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,22 +61,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C24A57FF24684EDD00D1FA7F /* Breed List */ = {
+		C22A685925EB1D9F00C8FD32 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C2CEF2DD244B6F2C0098001D /* BreedListViewController.swift */,
-				C24A580524686C0900D1FA7F /* BreedDescriptionViewController.swift */,
+				C28902FA244C7E57000EAD39 /* Networking.swift */,
+				C2304B2625EB274400B47480 /* APIConstants.swift */,
 			);
-			path = "Breed List";
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C23BCB7325EAAD7400C44AD5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C2E83058244B074F009C3035 /* AppDelegate.swift */,
+				C2E8305A244B074F009C3035 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		C23BCB7725EAAF7200C44AD5 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				C2E8305C244B074F009C3035 /* WelcomeVC.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		C23BCB8825EAB21800C44AD5 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C23BCB8925EAB22B00C44AD5 /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		C24A57FF24684EDD00D1FA7F /* BreedList */ = {
+			isa = PBXGroup;
+			children = (
+				C2CEF2DD244B6F2C0098001D /* BreedListVC.swift */,
+				C24A580524686C0900D1FA7F /* BreedDescriptionVC.swift */,
+				C24A5800246862CD00D1FA7F /* BreedCell */,
+			);
+			path = BreedList;
 			sourceTree = "<group>";
 		};
 		C24A5800246862CD00D1FA7F /* BreedCell */ = {
 			isa = PBXGroup;
 			children = (
-				C266AA972489B6070025B191 /* NewBreedTableViewCell.swift */,
-				C266AA982489B6070025B191 /* NewBreedTableViewCell.xib */,
-				C24A5801246862FA00D1FA7F /* BreedTableViewCell.swift */,
-				C24A5802246862FA00D1FA7F /* BreedTableViewCell.xib */,
+				C266AA972489B6070025B191 /* BreedTableViewCell.swift */,
+				C266AA982489B6070025B191 /* BreedTableViewCell.xib */,
 			);
 			path = BreedCell;
 			sourceTree = "<group>";
@@ -84,9 +117,9 @@
 		C2941643245F1874006ABF9B /* QuizGameVСs */ = {
 			isa = PBXGroup;
 			children = (
-				C2E83072244B2F83009C3035 /* RulesViewController.swift */,
-				C2CEF2DB244B6EFA0098001D /* QuizViewController.swift */,
-				C2A95A5D245AE06C00B6A811 /* FinalScoreView.swift */,
+				C2E83072244B2F83009C3035 /* RulesVC.swift */,
+				C2CEF2DB244B6EFA0098001D /* QuizVC.swift */,
+				C2A95A5D245AE06C00B6A811 /* FinalScoreVC.swift */,
 			);
 			path = "QuizGameVСs";
 			sourceTree = "<group>";
@@ -110,12 +143,11 @@
 		C2E83057244B074F009C3035 /* Cat at App */ = {
 			isa = PBXGroup;
 			children = (
+				C23BCB7325EAAD7400C44AD5 /* Application */,
 				C2E8306C244B077B009C3035 /* Module */,
-				C2E8306E244B078A009C3035 /* Controller */,
-				C2E8306F244B079E009C3035 /* Support Files */,
-				C2E8306D244B0780009C3035 /* View */,
-				C2E83061244B0750009C3035 /* Assets.xcassets */,
-				C2E83066244B0750009C3035 /* Info.plist */,
+				C22A685925EB1D9F00C8FD32 /* Networking */,
+				C2E8306D244B0780009C3035 /* UI */,
+				C2E8306F244B079E009C3035 /* Resources */,
 			);
 			path = "Cat at App";
 			sourceTree = "<group>";
@@ -123,40 +155,32 @@
 		C2E8306C244B077B009C3035 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C2E83070244B11DD009C3035 /* Constans.swift */,
 				C2CEF2D9244B6E810098001D /* CatBreed.swift */,
-				C28902FA244C7E57000EAD39 /* CatManager.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
 		};
-		C2E8306D244B0780009C3035 /* View */ = {
+		C2E8306D244B0780009C3035 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C24A5800246862CD00D1FA7F /* BreedCell */,
+				C23BCB7725EAAF7200C44AD5 /* Welcome */,
+				C24A57FF24684EDD00D1FA7F /* BreedList */,
+				C2941643245F1874006ABF9B /* QuizGameVСs */,
+				C23BCB8825EAB21800C44AD5 /* BaseViewController */,
 				C2E8305E244B074F009C3035 /* Main.storyboard */,
 				C2E83063244B0750009C3035 /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		C2E8306E244B078A009C3035 /* Controller */ = {
+		C2E8306F244B079E009C3035 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2E8305C244B074F009C3035 /* HomeViewController.swift */,
-				C24A57FF24684EDD00D1FA7F /* Breed List */,
-				C2941643245F1874006ABF9B /* QuizGameVСs */,
+				C2E83061244B0750009C3035 /* Assets.xcassets */,
+				C2E83066244B0750009C3035 /* Info.plist */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C2E8306F244B079E009C3035 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C2E83070244B11DD009C3035 /* Constans.swift */,
-				C2E83058244B074F009C3035 /* AppDelegate.swift */,
-				C2E8305A244B074F009C3035 /* SceneDelegate.swift */,
-			);
-			path = "Support Files";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C24A5804246862FA00D1FA7F /* BreedTableViewCell.xib in Resources */,
-				C266AA9A2489B6070025B191 /* NewBreedTableViewCell.xib in Resources */,
+				C266AA9A2489B6070025B191 /* BreedTableViewCell.xib in Resources */,
 				C2E83065244B0750009C3035 /* LaunchScreen.storyboard in Resources */,
 				C2E83062244B0750009C3035 /* Assets.xcassets in Resources */,
 				C2E83060244B074F009C3035 /* Main.storyboard in Resources */,
@@ -232,19 +255,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C24A580624686C0900D1FA7F /* BreedDescriptionViewController.swift in Sources */,
-				C2CEF2DE244B6F2C0098001D /* BreedListViewController.swift in Sources */,
-				C266AA992489B6070025B191 /* NewBreedTableViewCell.swift in Sources */,
-				C2E8305D244B074F009C3035 /* HomeViewController.swift in Sources */,
-				C28902FB244C7E57000EAD39 /* CatManager.swift in Sources */,
+				C24A580624686C0900D1FA7F /* BreedDescriptionVC.swift in Sources */,
+				C2CEF2DE244B6F2C0098001D /* BreedListVC.swift in Sources */,
+				C266AA992489B6070025B191 /* BreedTableViewCell.swift in Sources */,
+				C2E8305D244B074F009C3035 /* WelcomeVC.swift in Sources */,
+				C23BCB8A25EAB22B00C44AD5 /* BaseViewController.swift in Sources */,
+				C28902FB244C7E57000EAD39 /* Networking.swift in Sources */,
 				C2CEF2DA244B6E810098001D /* CatBreed.swift in Sources */,
-				C2A95A5E245AE06C00B6A811 /* FinalScoreView.swift in Sources */,
+				C2A95A5E245AE06C00B6A811 /* FinalScoreVC.swift in Sources */,
 				C2E83059244B074F009C3035 /* AppDelegate.swift in Sources */,
 				C2E83071244B11DD009C3035 /* Constans.swift in Sources */,
 				C2E8305B244B074F009C3035 /* SceneDelegate.swift in Sources */,
-				C2CEF2DC244B6EFA0098001D /* QuizViewController.swift in Sources */,
-				C2E83073244B2F83009C3035 /* RulesViewController.swift in Sources */,
-				C24A5803246862FA00D1FA7F /* BreedTableViewCell.swift in Sources */,
+				C2304B2725EB274400B47480 /* APIConstants.swift in Sources */,
+				C2CEF2DC244B6EFA0098001D /* QuizVC.swift in Sources */,
+				C2E83073244B2F83009C3035 /* RulesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9R45Q2DW4H;
-				INFOPLIST_FILE = "Cat at App/Info.plist";
+				INFOPLIST_FILE = "Cat at App/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,7 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9R45Q2DW4H;
-				INFOPLIST_FILE = "Cat at App/Info.plist";
+				INFOPLIST_FILE = "Cat at App/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
