@@ -6,7 +6,7 @@ class Networking {
     private init() {}
     
     static let shared = Networking()
-            
+    
     var decoder = JSONDecoder()
     
     let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
@@ -15,21 +15,21 @@ class Networking {
     
     func loadBreedList() {
         let url = URL(string: APIConstans.AllBreedsURL)!
-            let request = NSMutableURLRequest(url: url)
-            request.setValue(APIConstans.apiKey, forHTTPHeaderField: "x-api-key")
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if let coderesponce = response as? HTTPURLResponse {
-                    print("Code: \(coderesponce.statusCode)")
-                    if let safeData = data {
-                        self.parseCatBreeds(safeData)
-                    }
-                }
-                if error != nil{
-                    print(error!)
+        let request = NSMutableURLRequest(url: url)
+        request.setValue(APIConstans.apiKey, forHTTPHeaderField: "x-api-key")
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let coderesponce = response as? HTTPURLResponse {
+                print("Code: \(coderesponce.statusCode)")
+                if let safeData = data {
+                    self.parseCatBreeds(safeData)
                 }
             }
-            task.resume()
+            if error != nil{
+                print(error!)
+            }
+        }
+        task.resume()
     }
     
     //MARK: - Parsing (Need to refactore)
@@ -63,7 +63,7 @@ class Networking {
         let url = URL(string: breed.image!.url!)!
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
-                        
+            
             if let safeData = data {
                 
                 let image = UIImage(data: safeData)!.jpegData(compressionQuality: 0.5)
@@ -89,7 +89,7 @@ class Networking {
         
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = URL(fileURLWithPath: path)
-
+        
         let filePath = url.appendingPathComponent(fileName).path
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: filePath) {
