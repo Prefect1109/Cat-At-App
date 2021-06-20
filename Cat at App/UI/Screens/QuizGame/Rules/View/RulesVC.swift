@@ -11,7 +11,8 @@ class RulesVC: BaseViewController {
     
     //MARK: - Variables
     
-    
+    var showQuiz: (() -> Void)?
+    var showCatBreedList: (() -> Void)?
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {
@@ -31,11 +32,11 @@ class RulesVC: BaseViewController {
     }
     
     @IBAction func onePlayerButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Segue.goToQuiz, sender: self)
+        showQuiz?()
     }
     
     @IBAction func breedListButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Segue.goToOneBreedList, sender: self)
+        showCatBreedList?()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

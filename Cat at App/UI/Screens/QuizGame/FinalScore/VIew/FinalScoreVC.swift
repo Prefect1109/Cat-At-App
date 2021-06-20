@@ -13,6 +13,7 @@ class FinalScoreVC: BaseViewController {
     @IBOutlet weak var finalText: UILabel!
     
     //MARK: - Variables
+    
     var finalScore = 0
     
     //MARK: - App Cycle methods

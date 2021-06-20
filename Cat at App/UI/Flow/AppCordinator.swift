@@ -38,6 +38,19 @@ class AppCoordinator: Coordinator {
             guard let self = self else { return }
             
             let viewController = BreedListVC.instantiate()
+            viewController.showCatBreedList = { [weak self] id in
+                self?.showBreedDetailed(with: id)
+            }
+            self.navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func showBreedDetailed(with id: Int) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let viewController = BreedDetailedVC.instantiate()
+            viewController.breed = K.breedsList[id]
             self.navigationController.pushViewController(viewController, animated: true)
         }
     }
@@ -47,19 +60,21 @@ class AppCoordinator: Coordinator {
             guard let self = self else { return }
             
             let viewController = RulesVC.instantiate()
+            viewController.showQuiz = self.showQuiz
             self.navigationController.pushViewController(viewController, animated: true)
         }
     }
     
-    func showQuizVC() {
+    func showQuiz() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
             let viewController = QuizVC.instantiate()
+            viewController.showFinal = self.showFinal
             self.navigationController.pushViewController(viewController, animated: true)
         }
     }
-    #warning("Contonue from her e")
+    
     func showFinal() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

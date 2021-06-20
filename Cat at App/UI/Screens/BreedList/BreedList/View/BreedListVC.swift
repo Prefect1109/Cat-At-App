@@ -9,6 +9,8 @@ class BreedListVC : BaseViewController {
     //MARK: - Variables
     
     var lastSelectedIndexPath : IndexPath!
+    
+    var showCatBreedList: ((Int) -> Void)?
         
     //MARK: - App Cycle methods
     
@@ -33,7 +35,7 @@ class BreedListVC : BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! BreedDescriptionVC
+        let destination = segue.destination as! BreedDetailedVC
         destination.breed = K.breedsList[lastSelectedIndexPath.row]
     }
 }
