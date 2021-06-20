@@ -2,13 +2,17 @@ import UIKit
 
 class WelcomeVC: BaseViewController {
     
-    //MARK: - IBotlets
+    //MARK: - View
+    
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var catImage: UIImageView!
     @IBOutlet weak var catBreedsButton: UIButton!
     @IBOutlet weak var quizButton: UIButton!
     
     //MARK: - Variables
+    
+    var showCatBreedList: (() -> Void)?
+    var showRules: (() -> Void)?
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {
@@ -30,15 +34,17 @@ class WelcomeVC: BaseViewController {
     //MARK: - Actions
     
     @IBAction func getCatBreedsList(_ sender: UIButton) {
-        if K.breedsList.count == 0 {
-            showLowInternetAlert()
-        } else {
-            performSegue(withIdentifier: Segue.goToBreedList, sender: self)
-        }
+//        if K.breedsList.count == 0 {
+//            showLowInternetAlert()
+//        } else {
+//            performSegue(withIdentifier: Segue.goToBreedList, sender: self)
+//        }
+        showCatBreedList?()
     }
     
     @IBAction func goToCatQuizRules(_ sender: UIButton) {
-        performSegue(withIdentifier: Segue.goToQuizMainView, sender: self)
+//        performSegue(withIdentifier: Segue.goToQuizMainView, sender: self)
+        showRules?()
     }
     
     //MARK: - Navigation
@@ -49,6 +55,5 @@ class WelcomeVC: BaseViewController {
         } else if segue.identifier == Segue.goToQuizMainView{
             _ = segue.destination as! RulesVC
         }
-        
     }
 }

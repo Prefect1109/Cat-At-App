@@ -2,13 +2,16 @@ import UIKit
 
 class RulesVC: BaseViewController {
     
-    //MARK: - IBotlets
+    //MARK: - View
+    
     @IBOutlet weak var quizTittle: UILabel!
     @IBOutlet weak var rulesView: UIView!
     @IBOutlet weak var twoPlayersButton: UIButton!
     @IBOutlet weak var onePlayerButton: UIButton!
     
     //MARK: - Variables
+    
+    
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {

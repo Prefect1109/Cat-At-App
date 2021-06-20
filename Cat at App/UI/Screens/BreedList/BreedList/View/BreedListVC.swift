@@ -2,13 +2,16 @@ import UIKit
 
 class BreedListVC : BaseViewController {
         
-    //MARK: - IBOutlets
+    //MARK: - View
+    
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Variables
+    
     var lastSelectedIndexPath : IndexPath!
         
     //MARK: - App Cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +23,7 @@ class BreedListVC : BaseViewController {
     }
     
     //MARK: - View
+    
     private func configurateView(){
         tableView.separatorStyle = .none
     }
