@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Breed DetailedVC-->
+        <scene sceneID="QQ5-3B-Ozs">
+            <objects>
+                <viewController storyboardIdentifier="BreedDetailedVC" id="3Pd-mv-pbu" customClass="BreedDetailedVC" customModule="Cat_at_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MNe-53-PxC" userLabel="Top View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-ou-CWf" userLabel="Top View">
+                                <rect key="frame" x="20" y="74" width="374" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf0-2d-6KS" userLabel="Back Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="77b-ic-sf6"/>
+                                            <constraint firstAttribute="height" constant="39" id="p14-Hb-89N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="tintColor" name="SecondColor"/>
+                                        <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
+                                            <color key="titleColor" name="BrandColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBackButtonPressed:" destination="3Pd-mv-pbu" eventType="touchUpInside" id="2Bm-gG-keX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78E-KG-jvH">
+                                        <rect key="frame" x="50.5" y="-2" width="273" height="43.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Zdc-jd-ZP1"/>
+                                            <constraint firstAttribute="width" constant="273" id="p0J-zf-4SU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                        <color key="textColor" name="BrandColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Third Color"/>
+                                <constraints>
+                                    <constraint firstItem="Wf0-2d-6KS" firstAttribute="top" secondItem="ugw-ou-CWf" secondAttribute="top" id="8MC-hh-NEg"/>
+                                    <constraint firstItem="78E-KG-jvH" firstAttribute="centerY" secondItem="ugw-ou-CWf" secondAttribute="centerY" id="U7p-2B-lI6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wf0-2d-6KS" secondAttribute="bottom" id="pdF-Xe-Gmb"/>
+                                    <constraint firstItem="78E-KG-jvH" firstAttribute="centerX" secondItem="ugw-ou-CWf" secondAttribute="centerX" id="x2b-xk-ALe"/>
+                                    <constraint firstItem="Wf0-2d-6KS" firstAttribute="leading" secondItem="ugw-ou-CWf" secondAttribute="leading" id="ybp-iz-hZi"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gRB-kK-S8F">
+                                <rect key="frame" x="20" y="436" width="175.5" height="112"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5d2-v7-jfV">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="112"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life-span:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="on2-fQ-9TT">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="22"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intelligence:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDj-YI-Fex">
+                                                <rect key="frame" x="0.0" y="30" width="100.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dog friendly:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGN-SW-X05">
+                                                <rect key="frame" x="0.0" y="60" width="105.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Energy level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNl-GK-Wxr">
+                                                <rect key="frame" x="0.0" y="90" width="104.5" height="22"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="COT-Wt-dR0">
+                                        <rect key="frame" x="112.5" y="0.0" width="63" height="112"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 - 15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UU-hq-cNJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="63" height="22"/>
+                                                <color key="backgroundColor" name="SecondColor"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB2-vY-ILW">
+                                                <rect key="frame" x="0.0" y="30" width="43.5" height="22"/>
+                                                <color key="backgroundColor" name="SecondColor"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 / 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-f3-69j">
+                                                <rect key="frame" x="0.0" y="60" width="43.5" height="22"/>
+                                                <color key="backgroundColor" name="SecondColor"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 / 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXg-Qi-ocY">
+                                                <rect key="frame" x="0.0" y="90" width="55" height="22"/>
+                                                <color key="backgroundColor" name="SecondColor"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                <color key="textColor" name="BrandColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4C-eq-mbI">
+                                <rect key="frame" x="20" y="569" width="374" height="35"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
+                                <color key="textColor" name="BrandColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGt-LQ-irw">
+                                <rect key="frame" x="20" y="604" width="374" height="258"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="258" id="gGa-hP-dmz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="qix-rz-by8"/>
+                                </constraints>
+                                <string key="text">The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.</string>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" name="BrandColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-KS-iRb">
+                                <rect key="frame" x="20" y="133" width="374" height="283"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZgG-Ny-mhk">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="283"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZgG-Ny-mhk" secondAttribute="bottom" id="3gG-DR-JoB"/>
+                                    <constraint firstItem="ZgG-Ny-mhk" firstAttribute="top" secondItem="Ily-KS-iRb" secondAttribute="top" id="QYD-h9-Zmx"/>
+                                    <constraint firstItem="ZgG-Ny-mhk" firstAttribute="leading" secondItem="Ily-KS-iRb" secondAttribute="leading" id="SFL-mM-TQ7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZgG-Ny-mhk" secondAttribute="trailing" id="tEX-c9-PpU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zfa-OM-Tq6"/>
+                        <color key="backgroundColor" name="Third Color"/>
+                        <constraints>
+                            <constraint firstItem="zfa-OM-Tq6" firstAttribute="trailing" secondItem="HGt-LQ-irw" secondAttribute="trailing" constant="20" id="1Q1-2g-qQF"/>
+                            <constraint firstItem="Ily-KS-iRb" firstAttribute="leading" secondItem="zfa-OM-Tq6" secondAttribute="leading" constant="20" id="3oV-v9-ITP"/>
+                            <constraint firstItem="HGt-LQ-irw" firstAttribute="top" secondItem="B4C-eq-mbI" secondAttribute="bottom" id="49T-CS-3SZ"/>
+                            <constraint firstItem="B4C-eq-mbI" firstAttribute="leading" secondItem="zfa-OM-Tq6" secondAttribute="leading" constant="20" id="7Nt-7R-pyq"/>
+                            <constraint firstItem="ugw-ou-CWf" firstAttribute="leading" secondItem="zfa-OM-Tq6" secondAttribute="leading" constant="20" id="GNa-XA-Lki"/>
+                            <constraint firstItem="gRB-kK-S8F" firstAttribute="top" secondItem="Ily-KS-iRb" secondAttribute="bottom" constant="20" id="GXS-2E-85X"/>
+                            <constraint firstItem="HGt-LQ-irw" firstAttribute="bottom" secondItem="zfa-OM-Tq6" secondAttribute="bottom" id="JFx-KD-O8O"/>
+                            <constraint firstItem="B4C-eq-mbI" firstAttribute="top" secondItem="gRB-kK-S8F" secondAttribute="bottom" constant="21" id="JRQ-ow-F9q"/>
+                            <constraint firstItem="HGt-LQ-irw" firstAttribute="leading" secondItem="zfa-OM-Tq6" secondAttribute="leading" constant="20" id="Ljk-T5-e7k"/>
+                            <constraint firstItem="zfa-OM-Tq6" firstAttribute="trailing" secondItem="B4C-eq-mbI" secondAttribute="trailing" constant="20" id="S4Z-Ub-ojw"/>
+                            <constraint firstItem="Ily-KS-iRb" firstAttribute="top" secondItem="ugw-ou-CWf" secondAttribute="bottom" constant="20" id="Zlx-cg-i8M"/>
+                            <constraint firstItem="zfa-OM-Tq6" firstAttribute="trailing" secondItem="Ily-KS-iRb" secondAttribute="trailing" constant="20" id="aap-y8-zuv"/>
+                            <constraint firstItem="ugw-ou-CWf" firstAttribute="top" secondItem="zfa-OM-Tq6" secondAttribute="top" constant="30" id="b25-uV-173"/>
+                            <constraint firstItem="gRB-kK-S8F" firstAttribute="leading" secondItem="zfa-OM-Tq6" secondAttribute="leading" constant="19.999999999999986" id="bmt-Qc-N9L"/>
+                            <constraint firstItem="zfa-OM-Tq6" firstAttribute="trailing" secondItem="ugw-ou-CWf" secondAttribute="trailing" constant="20" id="tD5-cK-BEz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="szz-w1-lfQ"/>
+                    <connections>
+                        <outlet property="breedDescription" destination="HGt-LQ-irw" id="2Co-Zq-UK3"/>
+                        <outlet property="breedImage" destination="ZgG-Ny-mhk" id="akj-Nt-eW2"/>
+                        <outlet property="breedName" destination="78E-KG-jvH" id="Jqr-Ie-uuy"/>
+                        <outlet property="dogFriendly" destination="eKL-f3-69j" id="12K-zm-pFZ"/>
+                        <outlet property="energyLevel" destination="sXg-Qi-ocY" id="XQ0-ps-wOf"/>
+                        <outlet property="intelligence" destination="qB2-vY-ILW" id="s7Q-7s-6ib"/>
+                        <outlet property="lifeSpan" destination="8UU-hq-cNJ" id="knF-8a-wu0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q2f-ks-fN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5460.8695652173919" y="-173.4375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="BrandColor">
+            <color red="0.90600001811981201" green="0.82700002193450928" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="0.090000003576278687" green="0.17299999296665192" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Third Color">
+            <color red="0.16899999976158142" green="0.41600000858306885" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

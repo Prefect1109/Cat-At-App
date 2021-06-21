@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WelcomeVC-->
+        <scene sceneID="pXl-u5-QQg">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeVC" id="qgd-6A-rhI" customClass="WelcomeVC" customModule="Cat_at_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y9s-LP-n0W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jpgCat" translatesAutoresizingMaskIntoConstraints="NO" id="u9l-Wa-Sfc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat at app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p2R-tO-qSG">
+                                <rect key="frame" x="39" y="64" width="336" height="143"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="120"/>
+                                <color key="textColor" name="SecondColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSC-Cu-VRt">
+                                <rect key="frame" x="39" y="779" width="336" height="47"/>
+                                <color key="backgroundColor" name="Third Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="6sa-3C-VMF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Play Quiz">
+                                    <color key="titleColor" name="BrandColor"/>
+                                    <color key="titleShadowColor" name="BrandColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToCatQuizRules:" destination="qgd-6A-rhI" eventType="touchUpInside" id="16u-zd-wRn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4H-nX-igc">
+                                <rect key="frame" x="39" y="714" width="336" height="49"/>
+                                <color key="backgroundColor" name="SecondColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="6n0-vR-lqx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Cat Breeds">
+                                    <color key="titleColor" name="BrandColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCatBreedsList:" destination="qgd-6A-rhI" eventType="touchUpInside" id="ptf-Eo-ERx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vS1-YU-DzH"/>
+                        <color key="backgroundColor" name="BrandColor"/>
+                        <constraints>
+                            <constraint firstItem="HSC-Cu-VRt" firstAttribute="leading" secondItem="vS1-YU-DzH" secondAttribute="leading" constant="39" id="3ua-gf-dpd"/>
+                            <constraint firstItem="vS1-YU-DzH" firstAttribute="trailing" secondItem="a4H-nX-igc" secondAttribute="trailing" constant="39" id="6i6-RH-pzs"/>
+                            <constraint firstItem="p2R-tO-qSG" firstAttribute="leading" secondItem="vS1-YU-DzH" secondAttribute="leading" constant="39" id="8GC-xn-jh8"/>
+                            <constraint firstItem="vS1-YU-DzH" firstAttribute="bottom" secondItem="HSC-Cu-VRt" secondAttribute="bottom" constant="36" id="9Ii-Co-y16"/>
+                            <constraint firstItem="u9l-Wa-Sfc" firstAttribute="trailing" secondItem="vS1-YU-DzH" secondAttribute="trailing" id="B4v-Ks-Wxe"/>
+                            <constraint firstItem="vS1-YU-DzH" firstAttribute="trailing" secondItem="p2R-tO-qSG" secondAttribute="trailing" constant="39" id="P6T-0K-J2g"/>
+                            <constraint firstItem="HSC-Cu-VRt" firstAttribute="top" secondItem="a4H-nX-igc" secondAttribute="bottom" constant="16" id="QUM-mv-mIq"/>
+                            <constraint firstItem="vS1-YU-DzH" firstAttribute="trailing" secondItem="HSC-Cu-VRt" secondAttribute="trailing" constant="39" id="SWc-AC-7ld"/>
+                            <constraint firstItem="u9l-Wa-Sfc" firstAttribute="leading" secondItem="vS1-YU-DzH" secondAttribute="leading" id="bfS-aW-MGY"/>
+                            <constraint firstItem="p2R-tO-qSG" firstAttribute="top" secondItem="vS1-YU-DzH" secondAttribute="top" constant="20" id="qsm-UP-jTP"/>
+                            <constraint firstAttribute="bottom" secondItem="u9l-Wa-Sfc" secondAttribute="bottom" id="rVy-v8-jfv"/>
+                            <constraint firstItem="u9l-Wa-Sfc" firstAttribute="top" secondItem="y9s-LP-n0W" secondAttribute="top" id="sMl-wr-qKC"/>
+                            <constraint firstItem="a4H-nX-igc" firstAttribute="leading" secondItem="vS1-YU-DzH" secondAttribute="leading" constant="39" id="wgq-Ta-YRU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mOC-uY-WlS"/>
+                    <connections>
+                        <outlet property="catBreedsButton" destination="a4H-nX-igc" id="lMc-v0-32k"/>
+                        <outlet property="catImage" destination="u9l-Wa-Sfc" id="pA3-bL-VMH"/>
+                        <outlet property="quizButton" destination="HSC-Cu-VRt" id="ieZ-Wf-TF8"/>
+                        <outlet property="titleText" destination="p2R-tO-qSG" id="GoR-7q-5b6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aeZ-Ru-64j" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3179.7101449275365" y="418.52678571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="jpgCat" width="4675" height="4675"/>
+        <namedColor name="BrandColor">
+            <color red="0.90600001811981201" green="0.82700002193450928" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="0.090000003576278687" green="0.17299999296665192" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Third Color">
+            <color red="0.16899999976158142" green="0.41600000858306885" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RulesVC-->
+        <scene sceneID="4XS-wl-ogg">
+            <objects>
+                <viewController storyboardIdentifier="RulesVC" id="t3k-Qv-QQ2" customClass="RulesVC" customModule="Cat_at_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DuE-8C-DSR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-P5-nA0" userLabel="Rules View">
+                                <rect key="frame" x="20" y="230" width="374" height="363"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-pg-gR6">
+                                        <rect key="frame" x="8" y="8" width="358" height="37"/>
+                                        <color key="tintColor" name="SecondColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="xND-O3-AHx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                        <color key="textColor" name="SecondColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fna-qV-WuI">
+                                        <rect key="frame" x="8" y="45" width="358" height="87"/>
+                                        <color key="tintColor" name="SecondColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="87" id="UUG-vB-1Oo"/>
+                                        </constraints>
+                                        <string key="text">In 60 seconds you must chooseas much correct answersas you can.  You have 9 lives, don't afraid to lose one.  Right answer +1 point Wrong answer -1 heart</string>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <color key="textColor" name="SecondColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart" translatesAutoresizingMaskIntoConstraints="NO" id="tMq-1o-dkK">
+                                        <rect key="frame" x="8" y="132" width="358" height="223"/>
+                                        <color key="tintColor" name="SecondColor"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bwh-pg-gR6" secondAttribute="trailing" constant="8" id="0CH-AF-VSf"/>
+                                    <constraint firstItem="fna-qV-WuI" firstAttribute="top" secondItem="bwh-pg-gR6" secondAttribute="bottom" id="Aua-hy-Wfg"/>
+                                    <constraint firstItem="tMq-1o-dkK" firstAttribute="top" secondItem="fna-qV-WuI" secondAttribute="bottom" id="Ey1-kt-gFl"/>
+                                    <constraint firstAttribute="trailing" secondItem="fna-qV-WuI" secondAttribute="trailing" constant="8" id="F1m-Th-yMS"/>
+                                    <constraint firstItem="tMq-1o-dkK" firstAttribute="leading" secondItem="mIg-P5-nA0" secondAttribute="leading" constant="8" id="IPC-B7-Tdl"/>
+                                    <constraint firstItem="fna-qV-WuI" firstAttribute="leading" secondItem="mIg-P5-nA0" secondAttribute="leading" constant="8" id="TlV-ch-ov8"/>
+                                    <constraint firstAttribute="bottom" secondItem="tMq-1o-dkK" secondAttribute="bottom" constant="8" id="V8c-oE-VCf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tMq-1o-dkK" secondAttribute="trailing" constant="8" id="VU1-kF-f4R"/>
+                                    <constraint firstItem="bwh-pg-gR6" firstAttribute="leading" secondItem="mIg-P5-nA0" secondAttribute="leading" constant="8" id="WqB-b4-48h"/>
+                                    <constraint firstItem="bwh-pg-gR6" firstAttribute="top" secondItem="mIg-P5-nA0" secondAttribute="top" constant="8" id="tdg-BT-dnx"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWz-1w-E3F" userLabel="Back Button">
+                                <rect key="frame" x="20" y="44" width="374" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="d2g-RH-37O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="tintColor" name="SecondColor"/>
+                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="t3k-Qv-QQ2" eventType="touchUpInside" id="HpO-gT-bIE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Game" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="kOs-sS-mug">
+                                <rect key="frame" x="20" y="94" width="374" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="2WF-RR-2En"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="80"/>
+                                <color key="textColor" name="BrandColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-bh-bOB">
+                                <rect key="frame" x="20" y="756" width="374" height="70"/>
+                                <color key="backgroundColor" name="SecondColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="UGY-N3-uVz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" name="BrandColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onePlayerButtonPressed:" destination="t3k-Qv-QQ2" eventType="touchUpInside" id="btq-dX-LOS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfC-HC-IHd">
+                                <rect key="frame" x="20" y="660" width="374" height="70"/>
+                                <color key="backgroundColor" name="BrandColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ApL-jm-PsQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
+                                <state key="normal" title="Examine cat breeds">
+                                    <color key="titleColor" name="SecondColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="breedListButtonPressed:" destination="t3k-Qv-QQ2" eventType="touchDragInside" id="uo6-Q5-NHg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iAv-nZ-SQH"/>
+                        <color key="backgroundColor" name="Third Color"/>
+                        <color key="tintColor" name="BrandColor"/>
+                        <constraints>
+                            <constraint firstItem="mIg-P5-nA0" firstAttribute="top" secondItem="kOs-sS-mug" secondAttribute="bottom" constant="40" id="0t5-Wm-2Rh"/>
+                            <constraint firstItem="VWz-1w-E3F" firstAttribute="top" secondItem="iAv-nZ-SQH" secondAttribute="top" id="31m-mR-c7b"/>
+                            <constraint firstItem="rGc-bh-bOB" firstAttribute="leading" secondItem="iAv-nZ-SQH" secondAttribute="leading" constant="20" id="4Ok-SS-Xca"/>
+                            <constraint firstItem="VWz-1w-E3F" firstAttribute="leading" secondItem="iAv-nZ-SQH" secondAttribute="leading" constant="20" id="4p1-pg-gV8"/>
+                            <constraint firstItem="kOs-sS-mug" firstAttribute="leading" secondItem="iAv-nZ-SQH" secondAttribute="leading" constant="20" id="6mX-Jf-CwP"/>
+                            <constraint firstItem="MfC-HC-IHd" firstAttribute="top" secondItem="mIg-P5-nA0" secondAttribute="bottom" constant="67" id="Dm3-It-mME"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="trailing" secondItem="kOs-sS-mug" secondAttribute="trailing" constant="20" id="Gqu-Or-9FP"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="bottom" secondItem="rGc-bh-bOB" secondAttribute="bottom" constant="36" id="I58-PB-fa8"/>
+                            <constraint firstItem="MfC-HC-IHd" firstAttribute="leading" secondItem="iAv-nZ-SQH" secondAttribute="leading" constant="20" id="K3e-1w-Nrc"/>
+                            <constraint firstItem="mIg-P5-nA0" firstAttribute="leading" secondItem="iAv-nZ-SQH" secondAttribute="leading" constant="20" id="M58-XA-9sf"/>
+                            <constraint firstItem="rGc-bh-bOB" firstAttribute="top" secondItem="MfC-HC-IHd" secondAttribute="bottom" constant="26" id="VUV-IT-Ig5"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="trailing" secondItem="VWz-1w-E3F" secondAttribute="trailing" constant="20" id="Xue-qm-0HU"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="trailing" secondItem="MfC-HC-IHd" secondAttribute="trailing" constant="20" id="YPe-aD-7fU"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="trailing" secondItem="mIg-P5-nA0" secondAttribute="trailing" constant="20" id="frr-7g-v69"/>
+                            <constraint firstItem="kOs-sS-mug" firstAttribute="top" secondItem="VWz-1w-E3F" secondAttribute="bottom" constant="8" id="tyO-xn-0zH"/>
+                            <constraint firstItem="iAv-nZ-SQH" firstAttribute="trailing" secondItem="rGc-bh-bOB" secondAttribute="trailing" constant="20" id="umb-yq-qeH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OIK-Gt-NGD">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="y1R-yZ-K0J"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="onePlayerButton" destination="rGc-bh-bOB" id="6z0-7H-BtN"/>
+                        <outlet property="quizTittle" destination="kOs-sS-mug" id="toD-rz-408"/>
+                        <outlet property="rulesView" destination="mIg-P5-nA0" id="JLe-4J-WMo"/>
+                        <outlet property="twoPlayersButton" destination="MfC-HC-IHd" id="UnV-IZ-pLe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4of-bM-BTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421.739130434783" y="896.65178571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Heart" width="1000" height="1000"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="BrandColor">
+            <color red="0.90600001811981201" green="0.82700002193450928" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondColor">
+            <color red="0.090000003576278687" green="0.17299999296665192" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Third Color">
+            <color red="0.16899999976158142" green="0.41600000858306885" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

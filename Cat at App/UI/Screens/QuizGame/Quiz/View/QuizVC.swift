@@ -25,6 +25,9 @@ class QuizVC : BaseViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     //MARK: - Variables
+    
+    var showFinal: (() -> Void)?
+    
     var timeLeftSeconds : Float = 60
     var stopTimer = false
     

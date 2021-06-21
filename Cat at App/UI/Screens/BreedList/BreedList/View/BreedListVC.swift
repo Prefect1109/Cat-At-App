@@ -2,13 +2,18 @@ import UIKit
 
 class BreedListVC : BaseViewController {
         
-    //MARK: - IBOutlets
+    //MARK: - View
+    
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Variables
+    
     var lastSelectedIndexPath : IndexPath!
+    
+    var showCatBreedList: ((Int) -> Void)?
         
     //MARK: - App Cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +25,7 @@ class BreedListVC : BaseViewController {
     }
     
     //MARK: - View
+    
     private func configurateView(){
         tableView.separatorStyle = .none
     }
@@ -29,7 +35,7 @@ class BreedListVC : BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! BreedDescriptionVC
+        let destination = segue.destination as! BreedDetailedVC
         destination.breed = K.breedsList[lastSelectedIndexPath.row]
     }
 }

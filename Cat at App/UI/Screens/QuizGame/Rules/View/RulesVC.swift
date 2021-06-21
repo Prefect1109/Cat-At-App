@@ -2,13 +2,17 @@ import UIKit
 
 class RulesVC: BaseViewController {
     
-    //MARK: - IBotlets
+    //MARK: - View
+    
     @IBOutlet weak var quizTittle: UILabel!
     @IBOutlet weak var rulesView: UIView!
     @IBOutlet weak var twoPlayersButton: UIButton!
     @IBOutlet weak var onePlayerButton: UIButton!
     
     //MARK: - Variables
+    
+    var showQuiz: (() -> Void)?
+    var showCatBreedList: (() -> Void)?
     
     //MARK: - App Cycle methods
     override func viewDidLoad() {
@@ -28,11 +32,11 @@ class RulesVC: BaseViewController {
     }
     
     @IBAction func onePlayerButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Segue.goToQuiz, sender: self)
+        showQuiz?()
     }
     
     @IBAction func breedListButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Segue.goToOneBreedList, sender: self)
+        showCatBreedList?()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

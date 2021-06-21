@@ -1,6 +1,6 @@
 import UIKit
 
-class BreedDescriptionVC: BaseViewController {
+class BreedDetailedVC: BaseViewController {
     
     //MARK: - IBOutlets
     
