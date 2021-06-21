@@ -47,13 +47,4 @@ class WelcomeVC: BaseViewController {
         showRules?()
     }
     
-    //MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segue.goToBreedList {
-            _ = segue.destination as! BreedListVC
-        } else if segue.identifier == Segue.goToQuizMainView{
-            _ = segue.destination as! RulesVC
-        }
-    }
 }

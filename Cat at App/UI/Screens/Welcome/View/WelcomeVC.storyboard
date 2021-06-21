@@ -25,6 +25,9 @@
                                 <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="120"/>
                                 <color key="textColor" name="SecondColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="welcome_title"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSC-Cu-VRt">
                                 <rect key="frame" x="39" y="779" width="336" height="47"/>

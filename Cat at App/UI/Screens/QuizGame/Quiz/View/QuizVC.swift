@@ -56,9 +56,11 @@ class QuizVC : BaseViewController {
     
     //MARK: - View configuration
     private func configurateView(){
+        
         firtstAnswerButton.layer.cornerRadius = 15
         secondAnswerButton.layer.cornerRadius = 15
         skipButton.layer.cornerRadius = 15
+        
     }
     
     //MARK: - IBActions
@@ -107,7 +109,7 @@ class QuizVC : BaseViewController {
                 self.timeLeft.text = String(Int(self.timeLeftSeconds))
                 if (Int(self.timeLeftSeconds) <= 0){
                     timer.invalidate()
-                    self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
+//                    self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
                 }
             }
         }
@@ -203,9 +205,10 @@ class QuizVC : BaseViewController {
         case 1:
             life1.image = UIImage(named: "brokeHeart")
             self.stopTimer = true
-            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
+//            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
         default:
-            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
+            print(123)
+//            self.performSegue(withIdentifier: Segue.finalViewSegueName, sender: nil)
         }
         
     }
@@ -241,10 +244,10 @@ class QuizVC : BaseViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segue.finalViewSegueName{
-            let destination = segue.destination as! FinalScoreVC
-            destination.finalScore = scorePoints
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Segue.finalViewSegueName{
+//            let destination = segue.destination as! FinalScoreVC
+//            destination.finalScore = scorePoints
+//        }
+//    }
 }

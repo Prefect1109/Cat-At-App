@@ -7,9 +7,7 @@ class BreedListVC : BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Variables
-    
-    var lastSelectedIndexPath : IndexPath!
-    
+        
     var showCatBreedList: ((Int) -> Void)?
         
     //MARK: - App Cycle methods
@@ -19,7 +17,7 @@ class BreedListVC : BaseViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: CellID.catBreedCellClass, bundle: nil), forCellReuseIdentifier: CellID.catBreedCell)
+        tableView.register(R.nib.breedTableViewCell)
         
         configurateView()
     }
@@ -34,10 +32,6 @@ class BreedListVC : BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! BreedDetailedVC
-        destination.breed = K.breedsList[lastSelectedIndexPath.row]
-    }
 }
 
 //MARK: - UITableViewDelegate && UITableViewDataSource
@@ -49,13 +43,12 @@ extension BreedListVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.catBreedCell, for: indexPath) as! BreedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.breedTableViewCell.identifier, for: indexPath) as! BreedTableViewCell
         cell.breed = K.breedsList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lastSelectedIndexPath = indexPath
-        performSegue(withIdentifier: "goToBreedDescription", sender: self)
+        showCatBreedList?(indexPath.row)
     }
 }

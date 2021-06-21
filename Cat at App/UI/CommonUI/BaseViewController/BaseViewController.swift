@@ -6,7 +6,7 @@ class BaseViewController: UIViewController, StoryboardInstantiable {
     
     let activityControl = UIActivityIndicatorView()
     
-   //MARK: - VC cycle methods
+    //MARK: - VC cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,20 +56,28 @@ class BaseViewController: UIViewController, StoryboardInstantiable {
     
     //MARK: - Alerts
     
-    func showAlert(title: String, message: String, firstAlertString: String, secondAlertString: String) {
+    func showAlert(title: String,
+                   message: String,
+                   firstAlertString: String,
+                   secondAlertString: String) {
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: firstAlertString, style: .cancel, handler: nil))
+        
         alert.addAction(UIAlertAction(title: secondAlertString, style: .default, handler: { (_) in
+            
             let settingsUrl = URL(string: UIApplication.openSettingsURLString)
             if let url = settingsUrl {
                 UIApplication.shared.openURL(url)
             }
+            
         }))
+        
         present(alert, animated: true)
     }
     
     // Low internet alert
-    func showLowInternetAlert(){
+    func showLowInternetAlert() {
         showAlert(title: "We load new breeds",
                   message: "Your internet connection is unreachable, or low\n if low wait few seconds and try again.",
                   firstAlertString: "👌🏻 Try Again",
